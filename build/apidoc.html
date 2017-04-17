@@ -1,0 +1,205 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/jshosomichi/ifx#readme"
+
+    >ifx (v1.0.4)</a>
+</h1>
+<h4>Ifx is a JavaScript module that provides if-expression to return a value</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ifx">module ifx</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ifx.ifx">
+            function <span class="apidocSignatureSpan"></span>ifx
+            <span class="apidocSignatureSpan">(condition, _fixed, _truthy, _fixedValue)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ifx.toString">
+            function <span class="apidocSignatureSpan">ifx.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ifx.toString">module ifx.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ifx.toString.toString">
+            function <span class="apidocSignatureSpan">ifx.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ifx" id="apidoc.module.ifx">module ifx</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ifx.ifx" id="apidoc.element.ifx.ifx">
+        function <span class="apidocSignatureSpan"></span>ifx
+        <span class="apidocSignatureSpan">(condition, _fixed, _truthy, _fixedValue)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ifx = function (condition, _fixed, _truthy, _fixedValue) {
+
+  function isEmpty(value) {
+    return value === null || value === undefined;
+  }
+
+  function isFunction(value) {
+    return (value instanceof Function);
+  }
+
+  var fixed = isEmpty(_fixed) ? false : _fixed,
+      truthy = isEmpty(_truthy) ? false : _truthy,
+      fixedValue = isEmpty(_fixedValue) ? undefined : _fixedValue;
+
+  if (!fixed) {
+    truthy = condition ? true : false;
+  }
+
+  return function (callback) {
+    if (!fixed &#x26;&#x26; truthy) {
+      fixed = true;
+      if (isFunction(callback)) {
+        fixedValue = callback();
+      } else {
+        throw new Error(&#x27;If() can be applied to a function only&#x27;);
+      }
+    }
+    return {
+      Get: function () {
+        if (fixed) {
+          return fixedValue;
+        }
+        return null;
+      },
+      Else: function (callback) {
+        if (isFunction(callback)) {
+          if (!fixed) {
+            return callback();
+          } else {
+            return fixedValue;
+          }
+        } else {
+          throw new Error(&#x27;Else can be applied to a function only&#x27;);
+        }
+      },
+      ElseIf: function (condition) {
+        return If(condition, fixed, truthy, fixedValue);
+      }
+    };
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ifx.toString" id="apidoc.element.ifx.toString">
+        function <span class="apidocSignatureSpan">ifx.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ifx.toString" id="apidoc.module.ifx.toString">module ifx.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ifx.toString.toString" id="apidoc.element.ifx.toString.toString">
+        function <span class="apidocSignatureSpan">ifx.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
