@@ -1,4 +1,7 @@
-# api documentation for  [ifx (v1.0.4)](https://github.com/jshosomichi/ifx#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-ifx.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ifx) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ifx.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ifx)
+# npmdoc-ifx
+
+#### basic api documentation for  [ifx (v1.0.4)](https://github.com/jshosomichi/ifx#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-ifx.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ifx) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ifx.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ifx)
+
 #### Ifx is a JavaScript module that provides if-expression to return a value
 
 [![NPM](https://nodei.co/npm/ifx.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/ifx)
@@ -52,7 +55,8 @@
     "scripts": {
         "test": "jasmine"
     },
-    "version": "1.0.4"
+    "version": "1.0.4",
+    "bin": {}
 }
 ```
 
